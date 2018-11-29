@@ -17,7 +17,7 @@ public class LastName
 
         if (!matcher.matches())
         {
-            throw new NotProperName(name + " (no such name)");
+            throw new NotProperName(name, "invalid name");
         }
 
         System.out.println("Good name");
@@ -27,7 +27,7 @@ public class LastName
     {
       try
       {
-            LastName.checkName("Rodrihez-L-A    ");
+            LastName.checkName("Rodrihez-L-A-    ");
       }
       catch (Exception e)
       {

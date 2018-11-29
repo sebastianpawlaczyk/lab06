@@ -64,12 +64,12 @@ public class FirstName
 
         if (names_.get(name) == null)
         {
-            throw new NotProperName("File does not contain this name");
+            throw new NotProperName(name, "No name in file");
         }
 
         if (names_.get(name) != gender)
         {
-            throw new NameGenderMismatch("Not proper gender");
+            throw new NameGenderMismatch(name, gender.toString());
         }
 
         System.out.println("Proper data " + name + " " + gender.toString());

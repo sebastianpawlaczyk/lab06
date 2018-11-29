@@ -2,8 +2,18 @@ package exceptions;
 
 public class NotProperName extends Exception
 {
-    public NotProperName(String message)
+    public NotProperName()
     {
-        super(message);
+        super();
+    }
+
+    public NotProperName(String s)
+    {
+        super(s);
+    }
+
+    public NotProperName(String name, String reason)
+    {
+        super(reason + " (" + name + ")");
     }
 }

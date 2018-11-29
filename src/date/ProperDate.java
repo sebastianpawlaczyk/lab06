@@ -55,12 +55,12 @@ public class ProperDate extends GregorianCalendar
 
         if (!firstRegex_ && !secondRegex_)
         {
-            throw new DateException("Wrong Format");
+            throw new DateException(dateDsc, "Not proper format");
         }
 
         if (year_ < 1900 || year_ > 2100)
         {
-            throw new DateException("Not Proper Year");
+            throw new DateException(dateDsc, "Not proper year");
         }
 
         int maxForFeb = 28;
@@ -71,7 +71,7 @@ public class ProperDate extends GregorianCalendar
 
         if (month_ < 1 || month_ > 12)
         {
-            throw new DateException("Not Proper Month");
+            throw new DateException(dateDsc, "Not proper month");
         }
 
         switch (month_)
@@ -85,7 +85,7 @@ public class ProperDate extends GregorianCalendar
             case 12 :
                 if (day_ < 1 || day_ > 31)
                 {
-                    throw new DateException("Not Proper Day");
+                    throw new DateException(dateDsc, "Not proper day");
                 }
             case 4 :
             case 6 :
@@ -93,20 +93,21 @@ public class ProperDate extends GregorianCalendar
             case 11 :
                 if (day_ < 1 || day_ > 30)
                 {
-                    throw new DateException("Not Proper Day");
+                    throw new DateException(dateDsc, "Not proper day");
                 }
             case 2 :
                 if (day_ < 1 || day_ > maxForFeb)
                 {
-                    throw new DateException("Not Proper Day");
+                    throw new DateException(dateDsc, "Not proper day");
                 }
         }
+        set(year_, month_, day_);
     }
 
     public static void main(String args[]) throws Exception
     {
         try {
-            ProperDate properDate = new ProperDate("1900/02/28");
+            ProperDate properDate = new ProperDate("1900/12/28");
         }catch (Exception e)
         {
             System.out.println(e.getMessage());
